@@ -1,0 +1,22 @@
+---
+# tasks file for ansible-role-traefik
+# - name: check if traefik config file exists
+#   stat:
+#     path: /etc/traefik.toml
+#   register: traefik_config_file
+
+- name: Ensuere traefik file
+  template:
+    src: traefik.toml.j2
+    dest: /etc/traefik.toml
+#  when: traefik_config_file.stat.exists == False
+
+- name: Create Traefik container
+  docker_container:
+    image: traefik
+    name: traefik
+    volumes:
+      - /etc/traefik.toml:/etc/traefik/traefik.toml
+    ports:
+    - "80:80"
+    - "8080:8080"
