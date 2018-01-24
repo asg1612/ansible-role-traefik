@@ -1,3 +1,11 @@
+version: "2.2"
+
+networks:
+  default:
+    driver: bridge
+  system_traefik:
+    external: true
+
 traefik:
   image: traefik
   command: --web --docker --docker.domain=docker.localhost --logLevel=DEBUG
@@ -8,3 +16,6 @@ traefik:
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - /dev/null:/traefik.toml
+  networks:
+    - default
+    - system_traefik
