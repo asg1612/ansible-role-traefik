@@ -15,7 +15,7 @@ services:
       - "--docker.domain=docker.localhost"
       - "--logLevel=DEBUG"
       #- "--entrypoints='Name:http Address::80 Redirect.EntryPoint:https'"
-      - "--entrypoints='Name:https Address::443'"
+      # - "--entrypoints='Name:https Address::443'"
       #- "--defaultentrypoints=http,https"
     ports:
       - "80:80"
