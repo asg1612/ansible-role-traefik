@@ -9,7 +9,14 @@ networks:
 services:
   traefik:
     image: traefik
-    command: --web --docker --docker.domain=docker.localhost --logLevel=DEBUG
+    command:
+      - "--web"
+      - "--docker"
+      - "--docker.domain=docker.localhost"
+      - "--logLevel=DEBUG"
+      - "--entrypoints='Name:http Address::80 Redirect.EntryPoint:https'"
+      - "--entrypoints='Name:https Address::443 TLS'"
+      - "--defaultentrypoints=http,https"
     ports:
       - "80:80"
       - "8080:8080"
