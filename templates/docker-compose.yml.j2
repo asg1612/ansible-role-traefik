@@ -23,7 +23,7 @@ services:
       - "443:443"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /dev/null:/traefik.toml
+      #- /dev/null:/traefik.toml
     networks:
       - default
       - system_traefik
