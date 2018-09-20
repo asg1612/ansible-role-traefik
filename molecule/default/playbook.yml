@@ -5,5 +5,5 @@
     docker_version: 18.03.*
   roles:
     - role: asg1612.docker
-    - role: asg1612.dockerswarm
+  #  - role: asg1612.dockerswarm
     - role: ansible-role-traefik
