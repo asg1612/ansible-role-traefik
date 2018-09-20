@@ -18,7 +18,8 @@ install:
   - pip install -r test-requirements.txt
 
 script:
-  - molecule --debug test
+  - molecule converge
+
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
