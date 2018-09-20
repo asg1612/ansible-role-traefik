@@ -9,10 +9,10 @@ networks:
 services:
   traefik:
     image: traefik:latest
-    #command:
-      #- "--web"
-      #- "--docker"
-      #- "--docker.domain=docker.localhost"
+    command:
+      - "--web"
+      - "--docker"
+      - "--docker.domain=docker.localhost"
       #- "--logLevel=DEBUG"
       #- "--entrypoints='Name:http Address::80 Redirect.EntryPoint:https'"
       # - "--entrypoints='Name:https Address::443'"
@@ -23,7 +23,7 @@ services:
       - "443:443"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      #- /dev/null:/traefik.toml
+      - /dev/null:/traefik.toml
     networks:
       - default
       - system_traefik
