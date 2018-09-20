@@ -18,8 +18,7 @@ install:
   - pip install -r test-requirements.txt
 
 script:
-  - molecule test --driver-name docker
-
+  - molecule --debug test
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
