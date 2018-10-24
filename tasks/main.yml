@@ -20,10 +20,10 @@
     src: docker-compose.yml.j2
     dest: /var/local/traefik/docker-compose.yml
 
- - name: Run docker compose
-   docker_service:
-     project_src: /var/local/traefik
-     state: present
+- name: Run docker compose
+  docker_service:
+    project_src: /var/local/traefik
+    state: present
 
-#- name: Run docker ps
+# - name: Run docker ps
 #  command: docker ps
