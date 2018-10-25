@@ -16,6 +16,7 @@ before_install:
 # Install molecule
 install:
   - pip install -r test-requirements.txt
+  - pip install git+git://github.com/ansible/ansible.git@devel --upgrade
 
 script:
   - molecule --debug converge
