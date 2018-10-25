@@ -10,6 +10,22 @@
 #     src: traefik.toml.j2
 #     dest: /etc/traefik.toml
 
+- name: Install packages
+  apt:
+    name: [python-pip]
+    state: present
+
+- name: Install pip packages
+  pip:
+    name: [jsondiff]
+    state: present
+
+- name: Create network for traefik
+  docker_network:
+    name: traefik
+    driver: overlay
+  when: inventory_hostname == groups['docker_swarm_manager'][0]
+
 - name: Create Directory
   file:
     path: /var/local/traefik
@@ -21,9 +37,12 @@
     dest: /var/local/traefik/docker-compose.yml
 
 - name: Run docker compose
-  docker_service:
-    project_src: /var/local/traefik
+  docker_stack:
     state: present
+    name: traefik
+    compose:
+      - /var/local/traefik/docker-compose.yml
+  when: inventory_hostname == groups['docker_swarm_manager'][0]
 
 # - name: Run docker ps
 #  command: docker ps

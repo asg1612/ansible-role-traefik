@@ -47,7 +47,7 @@ readOnly = true
 #
 # Required
 #
-endpoint = "unix:///var/run/docker.sock"
+endpoint = "tcp://127.0.0.1:2375"
 
 # Default domain used.
 # Can be overridden by setting the "traefik.domain" label on a container.
@@ -75,7 +75,7 @@ watch = true
 # Optional
 # Default: true
 #
-exposedbydefault = true
+exposedbydefault = false
 
 # Use the IP address from the binded port instead of the inner network one.
 # For specific use-case :)
@@ -90,7 +90,14 @@ usebindportip = true
 # Optional
 # Default: false
 #
-swarmmode = false
+swarmmode = true
+
+# Define a default docker network to use for connections to all containers.
+# Can be overridden by the traefik.docker.network label.
+#
+# Optional
+#
+network = "web"
 
 # Enable docker TLS connection.
 #

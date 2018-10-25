@@ -1,13 +1,15 @@
-version: "2.2"
+version: "3.7"
 
 networks:
   default:
     driver: bridge
-  system_traefik:
+  web:
     driver: bridge
 
 services:
   traefik:
+    networks:
+      - traefik
     image: traefik:latest
     command:
       - "--web"
@@ -24,6 +26,10 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /dev/null:/traefik.toml
-    networks:
-      - default
-      - system_traefik
+    deploy:
+      mode: global
+
+networks:
+  traefik:
+    external:
+      name: traefik
