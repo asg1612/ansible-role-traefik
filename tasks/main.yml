@@ -36,6 +36,11 @@
     src: docker-compose.yml.j2
     dest: /var/local/traefik/docker-compose.yml
 
+- name: Upload traefik config
+  template:
+    src: traefik.toml.j2
+    dest: /var/local/traefik/traefik.toml
+
 - name: Run docker compose
   docker_stack:
     state: present
