@@ -12,6 +12,8 @@ entryPoint = "traefik"
 dashboard = true
 debug = true
 
+logLevel = "DEBUG"
+[accessLog]
 
 ################################################################
 # Docker configuration backend
@@ -23,6 +25,7 @@ debug = true
 endpoint = "unix:///var/run/docker.sock"
 domain = "docker.localhost"
 watch = true
-exposedbydefault = false
+exposedbydefault = true
 usebindportip = true
-swarmmode = true
+swarmMode = true
+network = "traefik"

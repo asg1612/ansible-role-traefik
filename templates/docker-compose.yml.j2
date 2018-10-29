@@ -15,12 +15,14 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /var/local/traefik/traefik.toml:/etc/traefik/traefik.toml
+    networks:
+      - traefik
     deploy:
       placement:
         constraints:
           - node.role == manager
 
-# networks:
-#   traefik:
-#     external:
-#       name: traefik
+networks:
+  traefik:
+    driver: overlay
+    external: true
