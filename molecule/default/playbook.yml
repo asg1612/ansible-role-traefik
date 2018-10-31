@@ -3,6 +3,7 @@
   hosts: all
   vars:
     docker_version: 18.06.*
+    prometheus_metrics: true
   roles:
     - role: asg1612.docker
     - role: asg1612.dockerswarm

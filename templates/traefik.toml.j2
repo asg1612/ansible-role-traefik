@@ -29,3 +29,10 @@ exposedbydefault = true
 usebindportip = true
 swarmMode = true
 network = "traefik"
+
+{% if prometheus_metrics == true %}
+# Metrics definition Prometheus
+[metrics]
+  [metrics.prometheus]
+    entryPoint = "traefik"
+{% endif %}

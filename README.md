@@ -12,7 +12,7 @@ Docker system
 Role Variables
 --------------
 
-none
+- **prometheus_metrics**: if is true enable prometheus metrics
 
 Dependencies
 ------------

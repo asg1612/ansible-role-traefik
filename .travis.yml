@@ -21,7 +21,7 @@ install:
   - pip install git+git://github.com/ansible/ansible.git@devel --upgrade
 
 script:
-  - molecule --debug converge
+  - molecule test --driver-name docker
 
 
 notifications:
