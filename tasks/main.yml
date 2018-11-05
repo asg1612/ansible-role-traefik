@@ -49,5 +49,7 @@
       - /var/local/traefik/docker-compose.yml
   when: inventory_hostname == groups['docker_swarm_manager'][0]
 
-# - name: Run docker ps
-#  command: docker ps
+- name: Añadimos el servidor como un traefik exporter de prometheus
+  consul:
+    service_name: traefik
+    service_port: 8080
