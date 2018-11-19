@@ -17,7 +17,7 @@
 
 - name: Install pip packages
   pip:
-    name: [jsondiff]
+    name: ["jsondiff", "python-consul"]
     state: present
 
 - name: Create network for traefik
@@ -53,3 +53,4 @@
   consul:
     service_name: traefik
     service_port: 8080
+  when: consul_ip

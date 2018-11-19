@@ -4,6 +4,7 @@
   vars:
     docker_version: 18.06.*
     prometheus_metrics: true
+    consul_ip: false
   roles:
     - role: asg1612.docker
     - role: asg1612.dockerswarm
