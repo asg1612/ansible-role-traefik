@@ -53,3 +53,4 @@
   consul:
     service_name: traefik
     service_port: 8080
+  when: consul_ip != false
