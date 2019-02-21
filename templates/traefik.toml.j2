@@ -37,8 +37,3 @@ network = "traefik"
     entryPoint = "traefik-net"
     buckets = [0.1,0.3,1.2,5.0]
 {% endif %}
-
-[consul]
-  endpoint = "{{ consul }}:8500"
-  watch = true
-  prefix = "traefik"
